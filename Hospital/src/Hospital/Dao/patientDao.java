@@ -10,13 +10,13 @@ import Hospital.common.DbUtil;
 import Hospital.pojo.Patient;
 
 /**
- * ²¡ÈË¹ÜÀíDao²ã
+ * ç—…äººç®¡ç†Daoå±‚
  * @author moline-x
  * 2019-06-18
  */
 public class patientDao {
 	/**
-	 * ²åÈë²¡ÈËÊı¾İ
+	 * æ’å…¥ç—…äººæ•°æ®
 	 * @param Patient
 	 */
 	public void insert(Patient patient) {
@@ -28,7 +28,7 @@ public class patientDao {
 			pstmt.setString(1, patient.getPname());
 			pstmt.setInt(2, patient.getPage());
 			pstmt.setString(3, patient.getPsex());
-			pstmt.setInt(4, patient.getPphone());
+			pstmt.setString(4, patient.getPphone());
 			pstmt.executeUpdate();
 			pstmt.close();
 			con.close();
@@ -38,7 +38,7 @@ public class patientDao {
 		}
 	}
 	/**
-	 * ĞŞ¸Ä²¡ÈËÊı¾İ
+	 * ä¿®æ”¹ç—…äººæ•°æ®
 	 * @param Patient
 	 */
 	public void update(Patient patient) {
@@ -50,7 +50,7 @@ public class patientDao {
 			pstmt.setString(1, patient.getPname());
 			pstmt.setInt(2, patient.getPage());
 			pstmt.setString(3, patient.getPsex());
-			pstmt.setInt(4, patient.getPphone());
+			pstmt.setString(4, patient.getPphone());
 			pstmt.setInt(5, patient.getPid());
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -61,7 +61,7 @@ public class patientDao {
 		}
 	}
 	/**
-	 * É¾³ı²¡ÈËÊı¾İ
+	 * åˆ é™¤ç—…äººæ•°æ®
 	 * @param Patient
 	 */
 	public void delete(Integer pId) {
@@ -81,7 +81,7 @@ public class patientDao {
 		}
 	}
 	/**
-	 * Í¨¹ıid²éÑ¯µ¥¸ö²¡ÈËĞÅÏ¢
+	 * é€šè¿‡idæŸ¥è¯¢å•ä¸ªç—…äººä¿¡æ¯
 	 * @param Patient
 	 */
 	public Patient queryById(Integer pId) {
@@ -95,7 +95,7 @@ public class patientDao {
 			
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
-				patient = new Patient(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5));
+				patient = new Patient(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5));
 			}
 			rs.close();
 			pstmt.close();
@@ -107,7 +107,7 @@ public class patientDao {
 		
 	}
 	/**
-	 * ²éÑ¯ËùÓĞ²¿ÃÅĞÅÏ¢
+	 * æŸ¥è¯¢æ‰€æœ‰éƒ¨é—¨ä¿¡æ¯
 	 */
 	public ArrayList<Patient> query(){
 		Connection con = DbUtil.getConnection();
@@ -118,7 +118,7 @@ public class patientDao {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				Patient patient = new Patient(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5));
+				Patient patient = new Patient(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5));
 				list.add(patient);
 			}
 			rs.close();
