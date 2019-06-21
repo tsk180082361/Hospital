@@ -2,7 +2,7 @@ package Hospital.pojo;
 
 
 /**
- * ²¡ÈËÊµÌåÀà
+ * ç—…äººå®žä½“ç±»
  * @author moline-x
  * 2019-06-18
  */
@@ -11,9 +11,9 @@ public class Patient {
 	private String pname;
 	private Integer page;
 	private String psex;
-	private Integer pphone;
+	private String pphone;
 	
-	public Patient(Integer pid, String pname, Integer page, String psex, Integer pphone) {
+	public Patient(Integer pid, String pname, Integer page, String psex, String pphone) {
 		super();
 		this.pid = pid;
 		this.pname = pname;
@@ -23,7 +23,7 @@ public class Patient {
 	}
 	
 	
-	public Patient(String pname, Integer page, String psex, Integer pphone) {
+	public Patient(String pname, Integer page, String psex, String pphone) {
 		super();
 		this.pname = pname;
 		this.page = page;
@@ -67,11 +67,11 @@ public class Patient {
 		this.psex = psex;
 	}
 
-	public Integer getPphone() {
+	public String getPphone() {
 		return pphone;
 	}
 
-	public void setPphone(Integer pphone) {
+	public void setPphone(String pphone) {
 		this.pphone = pphone;
 	}
 
